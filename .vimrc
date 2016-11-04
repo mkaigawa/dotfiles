@@ -20,10 +20,10 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'spolu/dwm.vim'
-
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'marcus/rsense'
 NeoBundle 'szw/vim-tags'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 call neobundle#end()
 
@@ -35,6 +35,14 @@ NeoBundleCheck
 "--------------------------- "
 " End  Neobundle Settings.   "
 "--------------------------- "
+syntax on
+
+colorscheme pablo
+set t_Co=256
+
+scriptencoding utf-8
+set encoding=utf-8
+
 set tags=~/.tags
 set noswapfile
 set nobackup
@@ -49,15 +57,11 @@ set nowrap
 set browsedir=buffer
 set smartcase
 set nohlsearch
-set expandtab
 set incsearch
 set hidden
-set list
-set listchars=tab:>\ ,extends:<
-set number
-set showmatch
 set autoindent
 set smartindent
+set expandtab
 set tabstop=4
 set shiftwidth=4
 set smarttab
@@ -65,18 +69,23 @@ set whichwrap=b,s,h,l,<,>,[,]
 set visualbell t_vb=
 set noerrorbells
 
-syntax on
-" colorscheme desert
-colorscheme pablo
+" line
+set number
+set showmatch
+set virtualedit=onemore
+set smartindent
 
-set t_Co=256
+set list
+set listchars=tab:>-,trail:-,nbsp:%
+" set listchars=tab:>-,trail:-,nbsp:%,eol:↲
+hi NonText guibg=NONE guifg=DarkGreen
 
 highlight LineNr ctermfg=darkyellow
 set cursorline
 hi clear CursorLine
 
-scriptencoding utf-8
-set encoding=utf-8
+nnoremap j gj
+nnoremap k gk
 
 " vimfiler
 let g:vimfiler_as_default_explorer = 1
