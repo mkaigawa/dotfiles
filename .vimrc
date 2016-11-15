@@ -25,6 +25,10 @@ NeoBundle 'marcus/rsense'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
+" colorscheme
+NeoBundle 'vim-scripts/darktango.vim'
+
+
 call neobundle#end()
 
 " Required:
@@ -37,7 +41,8 @@ NeoBundleCheck
 "--------------------------- "
 syntax on
 
-colorscheme pablo
+" colorscheme pablo
+colorscheme darktango
 set t_Co=256
 
 scriptencoding utf-8
@@ -76,8 +81,7 @@ set virtualedit=onemore
 set smartindent
 
 set list
-set listchars=tab:>-,trail:-,nbsp:%
-" set listchars=tab:>-,trail:-,nbsp:%,eol:↲
+set listchars=tab:▸\ ,trail:-,nbsp:%,eol:↲
 hi NonText guibg=NONE guifg=DarkGreen
 
 highlight LineNr ctermfg=darkyellow
