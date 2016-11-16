@@ -10,7 +10,7 @@
     $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 ## zsh(prezto)
-    forked from sorin-ionescu/prezto
+forked from sorin-ionescu/prezto
     
     $ git clone --recursive https://github.com/mkaigawa/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
     $ setopt EXTENDED_GLOB
