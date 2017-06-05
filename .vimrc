@@ -90,6 +90,10 @@ hi clear CursorLine
 
 nnoremap j gj
 nnoremap k gk
+noremap <S-h> ^
+noremap <S-l> $
+nnoremap ; : 
+nnoremap : ; 
 
 " vimfiler
 let g:vimfiler_as_default_explorer = 1
