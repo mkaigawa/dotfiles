@@ -76,6 +76,8 @@ noremap <S-h> ^
 noremap <S-l> $
 nnoremap ; :
 nnoremap : ;
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
 
 " lightline
 let g:lightline = {
