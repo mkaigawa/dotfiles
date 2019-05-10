@@ -9,6 +9,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'spolu/dwm.vim'
+NeoBundle 'fatih/vim-go'
 
 " colorscheme
 NeoBundle 'vim-scripts/darktango.vim'
@@ -109,3 +110,10 @@ endfunction
 function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
+
+
+"---- vim-go ----
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_version_warning = 0
