@@ -6,6 +6,8 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'spolu/dwm.vim'
@@ -80,6 +82,9 @@ nnoremap : ;
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 
+" vimfiler
+let g:vimfiler_as_default_explorer = 1
+
 " lightline
 let g:lightline = {
   \ 'colorscheme': 'wombat',
@@ -88,12 +93,41 @@ let g:lightline = {
   \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
   \ },
   \ 'component_function': {
+  \   'modified': 'LightlineModified',
+  \   'readonly': 'LightlineReadonly',
+  \   'fugitive': 'LightlineFugitive',
+  \   'filename': 'LightlineFilename',
   \   'fileformat': 'LightlineFileformat',
   \   'filetype': 'LightlineFiletype',
   \   'fileencoding': 'LightlineFileencoding',
   \   'mode': 'LightlineMode'
   \ }
 \ }
+
+function! LightlineModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+          \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+          \  &ft == 'unite' ? unite#get_status_string() :
+          \  &ft == 'vimshell' ? vimshell#get_status_string() :
+          \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+          \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+    return fugitive#head()
+  else
+    return ''
+  endif
+endfunction
 
 function! LightlineFileformat()
   return winwidth(0) > 70 ? &fileformat : ''
@@ -111,10 +145,10 @@ function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-
 "---- vim-go ----
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_version_warning = 0
 let g:go_fmt_autosave = 0
+
