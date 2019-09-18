@@ -9,6 +9,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'spolu/dwm.vim'
+NeoBundle 'rizzatti/dash.vim'
 
 " colorscheme
 NeoBundle 'vim-scripts/darktango.vim'
