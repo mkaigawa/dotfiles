@@ -14,6 +14,13 @@ NeoBundle 'prabirshrestha/vim-lsp'
 " NeoBundle 'skanehira/docker.vim'
 " NeoBundle 'skanehira/docker-compose.vim'
 
+" Track the engine.
+NeoBundle 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+NeoBundle 'honza/vim-snippets'
+
+NeoBundle 'gabrielelana/vim-markdown'
+
 " colorscheme
 NeoBundle 'vim-scripts/darktango.vim'
 
@@ -122,3 +129,13 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_version_warning = 0
 let g:go_fmt_autosave = 0
+
+"---- UltiSnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
