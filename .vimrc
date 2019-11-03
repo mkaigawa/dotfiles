@@ -61,7 +61,7 @@ set visualbell t_vb=
 set noerrorbells
 
 " line
-set number
+set number relativenumber
 nnoremap <F3> :<C-u>setlocal relativenumber!<CR>
 set showmatch
 set virtualedit=onemore
