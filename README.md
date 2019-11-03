@@ -1,13 +1,12 @@
 # dotfile
 
 ## Requirements
-- neobundle
+- Shougo/dein.vim
 - prezto
  
 ## neobundle install
     
-    $ mkdir -p ~/.vim/bundle
-    $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+   https://github.com/Shougo/dein.vim
 
 ## zsh(prezto)
 forked from sorin-ionescu/prezto

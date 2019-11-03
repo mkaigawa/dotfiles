@@ -1,41 +1,58 @@
-"--------------------------- "
-" Start Neobundle Settings.  "
-"--------------------------- "
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+" Required:
+set runtimepath+=/Users/mkaigawa/.cache/dein/repos/github.com/Shougo/dein.vim
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'spolu/dwm.vim'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'prabirshrestha/vim-lsp'
-" NeoBundle 'skanehira/docker.vim'
-" NeoBundle 'skanehira/docker-compose.vim'
+" Required:
+if dein#load_state('/Users/mkaigawa/.cache/dein')
+  call dein#begin('/Users/mkaigawa/.cache/dein')
 
-" Track the engine.
-NeoBundle 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-NeoBundle 'honza/vim-snippets'
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/mkaigawa/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-NeoBundle 'gabrielelana/vim-markdown'
+  " Add or remove your plugins here like this:
+  "call dein#add('Shougo/neosnippet.vim')
+  "call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/deoplete.nvim')
 
-" colorscheme
-NeoBundle 'vim-scripts/darktango.vim'
+  call dein#add('tomtom/tcomment_vim')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('spolu/dwm.vim')
+  call dein#add('fatih/vim-go')
+  call dein#add('prabirshrestha/vim-lsp')
+  " call dein#add('skanehira/docker.vim')
+  " call dein#add('skanehira/docker-compose.vim')
 
-call neobundle#end()
+  " Track the engine.
+  call dein#add('SirVer/ultisnips')
+  " Snippets are separated from the engine. Add this if you want them:
+  call dein#add('honza/vim-snippets')
+  call dein#add('gabrielelana/vim-markdown')
+
+  " colorscheme
+  call dein#add('vim-scripts/darktango.vim')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
 
 " Required:
 filetype plugin indent on
+syntax enable
 
-NeoBundleCheck
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
 
-"--------------------------- "
-" End  Neobundle Settings.   "
-"--------------------------- "
-syntax on
+"End dein Scripts-------------------------
 
+" settings
 colorscheme darktango
 highlight Normal ctermbg=none
 set t_Co=256
