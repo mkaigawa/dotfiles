@@ -11,6 +11,10 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'prabirshrestha/vim-lsp'
+NeoBundle 'skanehira/gtran'
+NeoBundle 'skanehira/translate.vim'
+" NeoBundle 'skanehira/docker.vim'
+" NeoBundle 'skanehira/docker-compose.vim'
 
 " colorscheme
 NeoBundle 'vim-scripts/darktango.vim'
