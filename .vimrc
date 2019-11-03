@@ -9,7 +9,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'spolu/dwm.vim'
-NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'prabirshrestha/vim-lsp'
 
 " colorscheme
 NeoBundle 'vim-scripts/darktango.vim'
@@ -61,6 +62,7 @@ set noerrorbells
 
 " line
 set number
+nnoremap <F3> :<C-u>setlocal relativenumber!<CR>
 set showmatch
 set virtualedit=onemore
 set smartindent
@@ -110,3 +112,11 @@ endfunction
 function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
+
+
+"---- vim-go ----
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_version_warning = 0
+let g:go_fmt_autosave = 0
