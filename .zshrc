@@ -99,7 +99,4 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # Alias
 # -----------------------------
 alias docker-prune-system='docker system prune'
-alias docker-prune-container='docker container prune'
-alias docker-prune-image='docker image prune'
-alias docker-prune-network='docker network prune'
 alias docker-rm='docker rm -f `docker ps -a -q`'
