@@ -21,6 +21,7 @@ export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
 export TERM='xterm-256color'
+export LESSCHARSET=utf-8
 # export LESS='-R'
 
 bindkey -e              # キーバインドをviモードに設定
@@ -93,3 +94,12 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
   # }
 #   ;;
 # esac
+
+# -----------------------------
+# Alias
+# -----------------------------
+alias docker-prune-system='docker system prune'
+alias docker-prune-container='docker container prune'
+alias docker-prune-image='docker image prune'
+alias docker-prune-network='docker network prune'
+alias docker-rm='docker rm -f `docker ps -a -q`'
