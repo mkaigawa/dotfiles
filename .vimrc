@@ -6,32 +6,36 @@ endif
 " Required:
 set runtimepath+=/Users/mkaigawa/.cache/dein/repos/github.com/Shougo/dein.vim
 
+" install
+"let $CACHE = expand('~/.cache')
+"if !isdirectory($CACHE)
+"      call mkdir($CACHE, 'p')
+"endif
+"if &runtimepath !~# '/dein.vim'
+"  let s:dein_dir = fnamemodify('dein.vim', ':p')
+"  if !isdirectory(s:dein_dir)
+"    let s:dein_dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
+"    if !isdirectory(s:dein_dir)
+"      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+"    endif
+"  endif
+"  execute 'set runtimepath^=' .. substitute(
+"      \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
+"endif
+
 " Required:
 if dein#load_state('/Users/mkaigawa/.cache/dein')
-  call dein#begin('/Users/mkaigawa/.cache/dein')
 
   " Let dein manage dein
+  call dein#begin('/Users/mkaigawa/.cache/dein')
   " Required:
   call dein#add('/Users/mkaigawa/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/deoplete.nvim')
 
   call dein#add('tomtom/tcomment_vim')
   call dein#add('itchyny/lightline.vim')
-  call dein#add('spolu/dwm.vim')
-  call dein#add('fatih/vim-go')
-  call dein#add('prabirshrestha/vim-lsp')
-  " call dein#add('skanehira/docker.vim')
-  " call dein#add('skanehira/docker-compose.vim')
-
-  " Track the engine.
-  call dein#add('SirVer/ultisnips')
-  " Snippets are separated from the engine. Add this if you want them:
-  call dein#add('honza/vim-snippets')
-  call dein#add('gabrielelana/vim-markdown')
 
   " colorscheme
   call dein#add('vim-scripts/darktango.vim')
@@ -46,9 +50,9 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
@@ -139,31 +143,3 @@ function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-
-"---- vim-go ----
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_version_warning = 0
-let g:go_fmt_autosave = 0
-
-"---- UltiSnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-
-" ファイルツリーの表示形式、1にするとls -laのような表示になります
-let g:netrw_liststyle=1
-" ヘッダを非表示にする
-let g:netrw_banner=0
-" サイズを(K,M,G)で表示する
-let g:netrw_sizestyle="H"
-" 日付フォーマットを yyyy/mm/dd(曜日) hh:mm:ss で表示する
-let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
-" プレビューウィンドウを垂直分割で表示する
-let g:netrw_preview=0
